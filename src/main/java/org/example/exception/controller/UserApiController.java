@@ -31,6 +31,10 @@ public class UserApiController {
     private Api<UserResponse> getUser(
             @PathVariable String userId
     ){
+        if(true){
+            throw new RuntimeException("message");
+        }
+
         var user = userList.stream().filter(
           it -> it.getId().equals(userId)
         ).findFirst().get();

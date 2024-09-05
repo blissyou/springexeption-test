@@ -2,6 +2,7 @@ package org.example.exception.exceotion;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.exception.model.Api;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -9,9 +10,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.NoSuchElementException;
 
-//아래 어노테이션은 예외를 감지하는 어노테이션
+
 @Slf4j
+//아래 어노테이션은 예외를 감지하는 어노테이션
 @RestControllerAdvice(basePackages = "org.example.exception")
+@Order(1)
 public class RestApiExceptionHandler {
     @ExceptionHandler(value = {Exception.class})
     public ResponseEntity exception(
